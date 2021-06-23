@@ -1,0 +1,24 @@
+def mutate_string(string, position, character):
+    """It's imperative to make s a global variable
+    NB: Please, read on local and global variables"""
+    global s
+    temp_list = list(s)
+    temp_list[int(i)] = c
+    s = "".join(temp_list)
+    return s    # You need to return s, or else you will get None
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
+    
+Alternatively,
+# Return directly after the function definition
+def mutate_string(string, position, character):
+  """This creates a slice
+  starting from index(0) to the position
+  then, adds the character
+  finally, adds from the next character after position to the end
+  If you forget to add the + 1, it will add the initial position giving an error"""
+return string[:position] + character + string[position + 1:]
